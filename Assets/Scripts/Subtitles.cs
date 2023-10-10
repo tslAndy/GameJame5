@@ -8,10 +8,16 @@ public class Subtitles : MonoBehaviour
     [Tooltip("The text object for the lines to be written to.")]
     [SerializeField]
     private TextMeshProUGUI _subtitleText;
+
+    [Tooltip("The lines that are going to be displayed in a succession in the subtitles.")]
     [SerializeField]
     private List<string> _lines;
+
+    [Tooltip("Whether the subtitles will play when the game starts or not.")]
     [SerializeField]
     private bool _playOnStart;
+
+    [Tooltip("Cooldown before displaying a new line after the current one, in seconds.")]
     [SerializeField]
     private float _textCooldown;
 
@@ -23,7 +29,7 @@ public class Subtitles : MonoBehaviour
         }
     }
 
-    private void TriggerSubtitles()
+    public void TriggerSubtitles()
     {
         int index = 0;
         StartCoroutine(PrintLines(index));
