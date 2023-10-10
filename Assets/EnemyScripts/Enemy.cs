@@ -7,11 +7,27 @@ public class Enemy : MonoBehaviour, IEnemy
 {
     [SerializeField] NavMeshAgent _navMeshAgent;
     [SerializeField] float _speed;
-    private IMover _mover = new NavMeshChasing();
+    [SerializeField] float _viewingRange;
+    [SerializeField] LayerMask _hittingLayer;
+    [SerializeField] int _raycastsAmount;
+    [SerializeField] float _raycastsAngle;
+    [SerializeField] float _chasingSpeed;
 
     public NavMeshAgent NavMeshAgent => _navMeshAgent;
     public float Speed => _speed;
 
+    public Transform Transform => transform;
+
+    public float ViewingRange => _viewingRange;
+
+    public LayerMask HittingLayer => _hittingLayer;
+
+    public int RaycastsAmount => _raycastsAmount;
+
+    public float RaycastsAngle => _raycastsAngle;
+    public float ChasingSpeed => _chasingSpeed;
+
+    /*
     void Update()
     {
         _mover.UpdateMove(Time.deltaTime);
@@ -25,4 +41,5 @@ public class Enemy : MonoBehaviour, IEnemy
         _mover = mover;
         _mover.StartMove();
     }
+    */
 }

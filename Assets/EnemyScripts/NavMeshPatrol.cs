@@ -6,12 +6,15 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class NavMeshPatrol : IMover
-{  
+{
     IEnemy _enemy;
     List<Vector3> _targets;
     private bool _isMoving;
     private Vector3 _currentTarget;
-    private float MinDistance = 0.05f;
+    private float MinDistance = 0.5f;
+
+    bool _isChasingPlayer;
+    bool _playerIsVisible;
 
     public NavMeshPatrol(IEnumerable<Transform> targets, IEnemy enemy)
     {
@@ -30,11 +33,24 @@ public class NavMeshPatrol : IMover
             return;
         _enemy.NavMeshAgent.SetDestination(_currentTarget);    // Set the destanation for IEnemy's NavMesh
         _enemy.NavMeshAgent.speed = _enemy.Speed;    // Set the NavMash's speed
-        if(_enemy.NavMeshAgent.remainingDistance <= MinDistance)   // if path was complited
+        if ((_currentTarget - _enemy.Transform.position).magnitude < MinDistance)   // if remaining distance is too small -> path was complited
         {
             SwitchTarget();    // Switch target
         }
      }
+    private void ObserveForPlayer()
+    {
+        Physics.Raycast(_enemy.Transform.position, _enemy.Transform.forward, out RaycastHit hit);
+        {
+            if (hit.transform.CompareTag("Player"))
+            {
+                if(_playerIsVisible && _isChasingPlayer)
+                {
+
+                }
+            }
+        }
+    }
     public void StopMove()
     {
         _isMoving = false;

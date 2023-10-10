@@ -7,4 +7,11 @@ public interface IEnemy
 {
      float Speed { get; }
      NavMeshAgent NavMeshAgent{ get; }
+     Transform Transform { get; }
+     float ViewingRange { get; }
+     LayerMask HittingLayer { get; }
+     int RaycastsAmount { get; }
+     
+     float RaycastsAngle { get; }
+     float ChasingSpeed { get; }
 }
