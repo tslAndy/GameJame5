@@ -35,6 +35,11 @@ public class Subtitles : MonoBehaviour
         StartCoroutine(PrintLines(index));
     }
 
+    public void AddLine(string line)
+    {
+        _lines.Add(line);
+    }
+
     private IEnumerator PrintLines(int index)
     {
         while (_lines.Count > index)
@@ -44,5 +49,6 @@ public class Subtitles : MonoBehaviour
             yield return new WaitForSeconds(_textCooldown);
         }
         _subtitleText.text = string.Empty;
+        _lines.Clear();
     }
 }
