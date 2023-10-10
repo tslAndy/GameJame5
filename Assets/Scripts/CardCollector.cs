@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -9,7 +10,10 @@ public class CardCollector : MonoBehaviour
     private Subtitles _subtitles;
     [SerializeField]
     private int _cardsTotal = 3;
+    [SerializeField]
+    private float _triggerCooldown;
     private int _score = 0;
+    private bool _isOnCooldown = false;
 
     private void Start()
     {
@@ -24,6 +28,7 @@ public class CardCollector : MonoBehaviour
 
     private void ShowExitStatus()
     {
+        if (_isOnCooldown) return;
         string exitStatus;
         if (_score < _cardsTotal)
         {
@@ -33,8 +38,10 @@ public class CardCollector : MonoBehaviour
         {
             exitStatus = "The door opened!";
         }
-        _subtitles.AddLine(exitStatus);
+        _subtitles.OverwriteLinesWithLine(exitStatus);
         _subtitles.TriggerSubtitles();
+        _isOnCooldown = true;
+        StartCoroutine(TriggerCooldown());
     }
 
     private void OnTriggerEnter(Collider other)
@@ -49,5 +56,11 @@ public class CardCollector : MonoBehaviour
         {
             ShowExitStatus();
         }
+    }
+
+    private IEnumerator TriggerCooldown()
+    {
+        yield return new WaitForSeconds(_triggerCooldown);
+        _isOnCooldown = false;
     }
 }

@@ -40,6 +40,13 @@ public class Subtitles : MonoBehaviour
         _lines.Add(line);
     }
 
+    // Clears all lines and replaces them with one line
+    public void OverwriteLinesWithLine(string line)
+    {
+        _lines.Clear();
+        _lines.Add(line);
+    }
+
     private IEnumerator PrintLines(int index)
     {
         while (_lines.Count > index)
