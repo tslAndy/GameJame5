@@ -6,6 +6,7 @@ public class EnemyStateManager : MonoBehaviour
 {
     [SerializeField] List<Transform> _targets = new List<Transform>();
     [SerializeField] private Enemy _enemy;
+    [SerializeField] private EnemyAnimationController animationController;
 
     public EnemyChaseState chaseState; 
     public EnemyPatrolState patrolState; 
@@ -28,11 +29,26 @@ public class EnemyStateManager : MonoBehaviour
         patrolState = new EnemyPatrolState(_targets, _enemy, this);
         _currentState = patrolState;
         _currentState.EnterState();
+        animationController = GetComponent<EnemyAnimationController>();
     }
 
     private void Update()
     {
         _currentState.UpdateState();
+
+        // Check if the enemy is chasing or searching and set animations accordingly
+        if (_currentState == chaseState)
+        {
+            animationController.SetChaseAnimation();
+        }
+        else if (_currentState == patrolState)
+        {
+            animationController.SetSearchAnimation();
+        }
+        else if(_currentState == patrolState)
+        {
+            animationController.SetSearchAnimation();
+        }
     }
     public void SwitchState(EnemyBaseState state)
     {
