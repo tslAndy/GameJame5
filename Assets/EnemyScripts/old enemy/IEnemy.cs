@@ -14,4 +14,6 @@ public interface IEnemy
      
      float RaycastsAngle { get; }
      float ChasingSpeed { get; }
+     float WaitUntileNextCheck { get; }
+     float WaitUnileStartPatrol { get; }
 }

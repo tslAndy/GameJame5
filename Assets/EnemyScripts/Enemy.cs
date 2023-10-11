@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour, IEnemy
     [SerializeField] int _raycastsAmount;
     [SerializeField] float _raycastsAngle;
     [SerializeField] float _chasingSpeed;
+    [SerializeField] float _waitUntilNextCheck;
+    [SerializeField] float _waitwaitUntilStartPatrol;
 
     public NavMeshAgent NavMeshAgent => _navMeshAgent;
     public float Speed => _speed;
@@ -26,6 +28,8 @@ public class Enemy : MonoBehaviour, IEnemy
 
     public float RaycastsAngle => _raycastsAngle;
     public float ChasingSpeed => _chasingSpeed;
+    public float WaitUntileNextCheck => _waitUntilNextCheck;
+    public float WaitUnileStartPatrol => _waitwaitUntilStartPatrol;
 
     /*
     void Update()

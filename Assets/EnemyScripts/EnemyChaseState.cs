@@ -10,12 +10,14 @@ public class EnemyChaseState : EnemyBaseState
     public event GameEnded OmGameEnded;
     IEnemy _enemy;
     EnemyStateManager _context;
-    float MinDistance = 3f;
+    float MinDistance = 2.5f;
     RaycastHit hit;
 
     ///////Timer/////////
-    float waitUntilNextCheck = 5f;
-    float timer;
+    float checkTimer;
+    float waitTimer;
+
+    Vector3 _targetPosition;
 
 
     public EnemyChaseState(EnemyStateManager context, IEnemy enemy)
@@ -25,16 +27,15 @@ public class EnemyChaseState : EnemyBaseState
     }
     public override void EnterState()
     {
-           timer = waitUntilNextCheck;
-           Debug.Log("Chasing");
+           checkTimer = _enemy.WaitUntileNextCheck;
+           waitTimer = _enemy.WaitUnileStartPatrol;
     }
     public override void UpdateState()
     {
-        Debug.Log("Update Chase");
-           if (Time.time > timer + waitUntilNextCheck)
+           if (Time.time > checkTimer + _enemy.WaitUntileNextCheck)
            {
                CheckForThePlayer();
-               timer = Time.time;
+               checkTimer = Time.time;
            }
     }
 
@@ -48,13 +49,13 @@ public class EnemyChaseState : EnemyBaseState
 
            for (int i = 0; i < _enemy.RaycastsAmount; i++)
            {
-            Debug.Log("Making raycasts in chase");
                Vector3 direction = _enemy.Transform.forward.Rotate((centerIndex - i) * _enemy.RaycastsAngle);
                Physics.Raycast(_enemy.Transform.position, direction, out hit, _enemy.ViewingRange, _enemy.HittingLayer);
                Debug.DrawRay(_enemy.Transform.position, direction * _enemy.ViewingRange, Color.green);
                if(hit.collider != null )
                {
-                   _enemy.NavMeshAgent.SetDestination(hit.transform.position);    // Set the destanation to the players position
+                   _targetPosition = hit.collider.transform.position;
+                   _enemy.NavMeshAgent.SetDestination(_targetPosition);    // Set the destanation to the players position
                    _enemy.NavMeshAgent.speed = _enemy.ChasingSpeed;                  // Set the NavMash's speed to Chasing
                    _enemy.NavMeshAgent.isStopped = false;                  // Set the NavMash's speed to Chasing
                 if (_enemy.NavMeshAgent.remainingDistance < MinDistance)          // if remaining distance until the player is small -> game ended
@@ -63,9 +64,17 @@ public class EnemyChaseState : EnemyBaseState
                    }
                 break;
                }
-               else
+               else                                                 // If eney lost player -- go to the last player where the player was
                {
-                   _context.SwitchState(_context.patrolState);
+                   _enemy.NavMeshAgent.SetDestination(_targetPosition);
+                   if (_enemy.NavMeshAgent.remainingDistance < MinDistance)         
+                   {
+                    if (Time.time > waitTimer + _enemy.WaitUnileStartPatrol)
+                    {
+                        waitTimer = Time.time;
+                        _context.SwitchState(_context.patrolState);
+                    }
+                   }
                }
            }
     }

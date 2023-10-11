@@ -11,9 +11,17 @@ public class EnemyStateManager : MonoBehaviour
     public EnemyPatrolState patrolState; 
     public EnemyBaseState _currentState;
 
-    public bool isPlayerVisible = true;
+    [HideInInspector] public bool isPlayerVisible = true;
     [HideInInspector] public bool isMoving = true;
 
+    private void OnEnable()
+    {
+        SafeSpot.OnPlayerInSafeSpot += delegate (bool isIt) { isPlayerVisible = isIt; Debug.Log("Performed delegate"); };
+    }
+    private void OnDisable()
+    {
+        
+    }
     private void Awake()
     {
         chaseState = new EnemyChaseState(this, _enemy);
