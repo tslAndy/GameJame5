@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MaterialSwitcher : MonoBehaviour
@@ -11,8 +12,13 @@ public class MaterialSwitcher : MonoBehaviour
     public float energyDrainRate = 1f;
     public float energyRequirement = 10f; // How much energy is needed to turn on the camera
 
+    [SerializeField]
+    private TextMeshProUGUI _chargeText;
+    [SerializeField]
+    private GameObject _lowChargeWarning;
+
     private Renderer objectRenderer;
-    private float currentEnergy;
+    public float currentEnergy;
     private bool isRenderMaterialActive;
 
     private void Start()
@@ -37,7 +43,6 @@ public class MaterialSwitcher : MonoBehaviour
                 SwitchToMaterial(material1);
             }
         }
-
         UpdateEnergy();
     }
 
@@ -72,6 +77,17 @@ public class MaterialSwitcher : MonoBehaviour
             // Recharge energy when material 1 is active
             currentEnergy += energyRechargeRate * Time.deltaTime;
             currentEnergy = Mathf.Min(currentEnergy, maxEnergy); // Ensure energy doesn't exceed the maximum
+        }
+
+        _chargeText.text = "Camera charge: " + Mathf.RoundToInt(currentEnergy) + "%";
+
+        if (currentEnergy < energyRequirement && !_lowChargeWarning.activeSelf) // Red text is displayed if the camera's charge is low
+        {
+            _lowChargeWarning.SetActive(true);
+        }
+        else if (currentEnergy > energyRequirement && _lowChargeWarning.activeSelf)
+        {
+            _lowChargeWarning.SetActive(false);
         }
     }
 }

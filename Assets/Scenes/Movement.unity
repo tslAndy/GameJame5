@@ -1930,7 +1930,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collectedCardText: {fileID: 948555257}
-  _subtitles: {fileID: 0}
+  _subtitles: {fileID: 1004832387}
   _cardsTotal: 3
   _triggerCooldown: 5
 --- !u!114 &1004832387
