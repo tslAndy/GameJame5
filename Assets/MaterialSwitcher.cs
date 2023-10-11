@@ -12,12 +12,12 @@ public class MaterialSwitcher : MonoBehaviour
 
     private Renderer objectRenderer;
     private float currentEnergy;
-    private bool isMaterial2Active;
+    private bool isRenderMaterialActive;
 
     private void Start()
     {
         objectRenderer = GetComponent<Renderer>();
-        objectRenderer.material = material1; // Start with material 1
+        objectRenderer.material = material1; // Start with material 1 (black screen)
         currentEnergy = maxEnergy;
     }
 
@@ -25,17 +25,17 @@ public class MaterialSwitcher : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            if (!isMaterial2Active)
+            if (!isRenderMaterialActive)
             {
                 // If material 1 is active, switch to material 2
                 objectRenderer.material = material2;
-                isMaterial2Active = true;
+                isRenderMaterialActive = true;
             }
             else if (currentEnergy > 0)
             {
                 // If material 2 is active and energy is available, switch to material 1
                 objectRenderer.material = material1;
-                isMaterial2Active = false;
+                isRenderMaterialActive = false;
             }
         }
 
@@ -44,11 +44,16 @@ public class MaterialSwitcher : MonoBehaviour
 
     private void UpdateEnergy()
     {
-        if (isMaterial2Active)
+        if (isRenderMaterialActive)
         {
             // Drain energy when material 2 is active
             currentEnergy -= energyDrainRate * Time.deltaTime;
             currentEnergy = Mathf.Max(currentEnergy, 0f); // Ensure energy doesn't go below zero
+            if (currentEnergy <= 0)
+            {
+                objectRenderer.material = material1;
+                isRenderMaterialActive = false;
+            }
         }
         else
         {
