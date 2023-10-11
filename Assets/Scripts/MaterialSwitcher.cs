@@ -9,15 +9,16 @@ public class MaterialSwitcher : MonoBehaviour
     public float maxEnergy = 100f;
     public float energyRechargeRate = 1f;
     public float energyDrainRate = 1f;
+    public float energyRequirement = 10f; // How much energy is needed to turn on the camera
 
     private Renderer objectRenderer;
     private float currentEnergy;
-    private bool isMaterial2Active;
+    private bool isRenderMaterialActive;
 
     private void Start()
     {
         objectRenderer = GetComponent<Renderer>();
-        objectRenderer.material = material1; // Start with material 1
+        objectRenderer.material = material1; // Start with material 1 (black screen)
         currentEnergy = maxEnergy;
     }
 
@@ -25,30 +26,46 @@ public class MaterialSwitcher : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            if (!isMaterial2Active)
+            if (!isRenderMaterialActive && currentEnergy >= energyRequirement)
             {
                 // If material 1 is active, switch to material 2
-                objectRenderer.material = material2;
-                isMaterial2Active = true;
+                SwitchToMaterial(material2);
             }
-            else if (currentEnergy > 0)
+            else
             {
-                // If material 2 is active and energy is available, switch to material 1
-                objectRenderer.material = material1;
-                isMaterial2Active = false;
+                // If material 2 is active, switch to material 1
+                SwitchToMaterial(material1);
             }
         }
 
         UpdateEnergy();
     }
 
+    private void SwitchToMaterial(Material mat)
+    {
+        if (mat == material2)
+        {
+            objectRenderer.material = material2;
+            isRenderMaterialActive = true;
+        }
+        else
+        {
+            objectRenderer.material = material1;
+            isRenderMaterialActive = false;
+        }
+    }
+
     private void UpdateEnergy()
     {
-        if (isMaterial2Active)
+        if (isRenderMaterialActive)
         {
             // Drain energy when material 2 is active
             currentEnergy -= energyDrainRate * Time.deltaTime;
             currentEnergy = Mathf.Max(currentEnergy, 0f); // Ensure energy doesn't go below zero
+            if (currentEnergy <= 0)
+            {
+                SwitchToMaterial(material1);
+            }
         }
         else
         {

@@ -92,23 +92,23 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: {x: 0.8337368, y: 0.8882874, z: 1, w: -0.5472198}
   midtones:
-    m_OverrideState: 0
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_OverrideState: 1
+    m_Value: {x: 0.8063008, y: 0.8659044, z: 1, w: -0.15004413}
   highlights:
     m_OverrideState: 0
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_Value: {x: 0, y: 0.13157153, z: 1, w: 0.026478382}
   shadowsStart:
     m_OverrideState: 0
     m_Value: 0
   shadowsEnd:
     m_OverrideState: 0
-    m_Value: 0.3
+    m_Value: 100
   highlightsStart:
     m_OverrideState: 0
-    m_Value: 0.55
+    m_Value: 0
   highlightsEnd:
     m_OverrideState: 0
-    m_Value: 1
+    m_Value: 100
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
