@@ -6,6 +6,8 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
     [SerializeField]
     private GameObject _pauseMenu;
+    [SerializeField]
+    private bool _pausable = true;
 
     private void Awake()
     {
@@ -41,7 +43,7 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && _pausable)
         {
             TogglePause(_pauseMenu);
         }
