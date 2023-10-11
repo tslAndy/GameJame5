@@ -1539,6 +1539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71408186eeca2f04ca22f95a289bf11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerAudio: {fileID: 1251806668}
 --- !u!1 &1195591123
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,6 +1760,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mixer: {fileID: 24100000, guid: 036914cc425fc11428f12e4e50f644fd, type: 2}
+--- !u!114 &1251806668 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 687180949, guid: 11aaea5348574644a9eb4f4504fcce3f,
+    type: 3}
+  m_PrefabInstance: {fileID: 895221323}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f45facc01772ba47a9ae17bb7061b71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1261622624
 GameObject:
   m_ObjectHideFlags: 0

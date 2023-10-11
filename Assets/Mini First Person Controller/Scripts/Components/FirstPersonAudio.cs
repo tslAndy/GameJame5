@@ -90,6 +90,23 @@ public class FirstPersonAudio : MonoBehaviour
         lastCharacterPosition = CurrentCharacterPosition;
     }
 
+    public void PauseAllAudio()
+    {
+        // Pause all MovingAudios.
+        foreach (var audio in MovingAudios.Where(audio => audio != null))
+        {
+            audio.Pause();
+        }
+    }
+
+    public void UnpauseAllAudio()
+    {
+        foreach (var audio in MovingAudios.Where(audio => audio != null))
+        {
+            audio.UnPause();
+        }
+    }
+
 
     /// <summary>
     /// Pause all MovingAudios and enforce play on audioToPlay.
