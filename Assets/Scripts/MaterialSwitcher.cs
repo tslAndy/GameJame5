@@ -9,6 +9,7 @@ public class MaterialSwitcher : MonoBehaviour
     public float maxEnergy = 100f;
     public float energyRechargeRate = 1f;
     public float energyDrainRate = 1f;
+    public float energyRequirement = 10f; // How much energy is needed to turn on the camera
 
     private Renderer objectRenderer;
     private float currentEnergy;
@@ -25,21 +26,33 @@ public class MaterialSwitcher : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            if (!isRenderMaterialActive)
+            if (!isRenderMaterialActive && currentEnergy >= energyRequirement)
             {
                 // If material 1 is active, switch to material 2
-                objectRenderer.material = material2;
-                isRenderMaterialActive = true;
+                SwitchToMaterial(material2);
             }
-            else if (currentEnergy > 0)
+            else
             {
-                // If material 2 is active and energy is available, switch to material 1
-                objectRenderer.material = material1;
-                isRenderMaterialActive = false;
+                // If material 2 is active, switch to material 1
+                SwitchToMaterial(material1);
             }
         }
 
         UpdateEnergy();
+    }
+
+    private void SwitchToMaterial(Material mat)
+    {
+        if (mat == material2)
+        {
+            objectRenderer.material = material2;
+            isRenderMaterialActive = true;
+        }
+        else
+        {
+            objectRenderer.material = material1;
+            isRenderMaterialActive = false;
+        }
     }
 
     private void UpdateEnergy()
@@ -51,8 +64,7 @@ public class MaterialSwitcher : MonoBehaviour
             currentEnergy = Mathf.Max(currentEnergy, 0f); // Ensure energy doesn't go below zero
             if (currentEnergy <= 0)
             {
-                objectRenderer.material = material1;
-                isRenderMaterialActive = false;
+                SwitchToMaterial(material1);
             }
         }
         else
