@@ -21,11 +21,20 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && _pausable)
+        {
+            TogglePause(_pauseMenu);
+        }
+    }
+
     public void QuitGame()
     {
         Application.Quit();
     }
 
+    #region SceneFunctions
     public void SwitchScene(int index)
     {
         SceneManager.LoadScene(index);
@@ -41,13 +50,11 @@ public class UIManager : MonoBehaviour
         SwitchScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    private void Update()
+    public void ReloadScene()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && _pausable)
-        {
-            TogglePause(_pauseMenu);
-        }
+        SwitchScene(SceneManager.GetActiveScene().buildIndex);
     }
+    #endregion
 
     public void TogglePause(GameObject pauseMenu)
     {
