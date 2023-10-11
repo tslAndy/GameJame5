@@ -4,7 +4,7 @@ public class PauseMenu : MonoBehaviour
 {
     private void OnEnable()
     {
-        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         Time.timeScale = 0f;
     }
