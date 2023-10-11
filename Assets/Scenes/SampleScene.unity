@@ -1975,7 +1975,15 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2029926571}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1773623360729482, guid: 11aaea5348574644a9eb4f4504fcce3f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 843528063}
+    - targetCorrespondingSourceObject: {fileID: 1773623360729482, guid: 11aaea5348574644a9eb4f4504fcce3f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 843528062}
   m_SourcePrefab: {fileID: 100100000, guid: 11aaea5348574644a9eb4f4504fcce3f, type: 3}
 --- !u!114 &843528060 stripped
 MonoBehaviour:
@@ -1989,6 +1997,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f45facc01772ba47a9ae17bb7061b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &843528061 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1773623360729482, guid: 11aaea5348574644a9eb4f4504fcce3f,
+    type: 3}
+  m_PrefabInstance: {fileID: 843528059}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &843528062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843528061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d625eb4ed96ba46b41b192bd6899c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _subtitleText: {fileID: 131112135}
+  _lines:
+  - Something is wrong here...
+  - I need to use my camera to see the monster.
+  _playOnStart: 1
+  _textCooldown: 5
+--- !u!114 &843528063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843528061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f062d8c09900534499387f1a82539d7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collectedCardText: {fileID: 177244312}
+  _subtitles: {fileID: 843528062}
+  _cardsTotal: 3
+  _triggerCooldown: 5
 --- !u!1 &863281736
 GameObject:
   m_ObjectHideFlags: 0
