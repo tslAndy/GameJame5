@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
+    public bool allCardsCollected = false;
     [SerializeField]
     private TextMeshProUGUI _collectedCardText;
     [SerializeField]
@@ -37,6 +38,7 @@ public class ItemManager : MonoBehaviour
         {
             currentItem = battery;
             currentItem.OnEnter();
+            return;
         }
         else if (other.transform.TryGetComponent(out Card cart))
         {
@@ -51,9 +53,12 @@ public class ItemManager : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (!other.gameObject.CompareTag("Battery") || other.gameObject.CompareTag("Card"))
-            return;
-        if (currentItem != null)
+        if (other.gameObject.CompareTag("Battery") && currentItem != null)
+        {
+            currentItem.OnExit();
+            currentItem = null;
+        }
+        if (other.gameObject.CompareTag("Card") && currentItem != null)
         {
             currentItem.OnExit();
             currentItem = null;
@@ -79,6 +84,7 @@ public class ItemManager : MonoBehaviour
         }
         else
         {
+            allCardsCollected = true;
             exitStatus = "The door opened!";
         }
         _subtitles.OverwriteLinesWithLine(exitStatus);
