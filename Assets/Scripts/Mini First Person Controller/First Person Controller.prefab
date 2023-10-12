@@ -469,6 +469,7 @@ MonoBehaviour:
   maxZoomFOV: 15
   currentZoom: 0
   sensitivity: 1
+  targetObject: {fileID: 0}
 --- !u!114 &5117908526708581631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -527,6 +528,7 @@ GameObject:
   - component: {fileID: 114963311885979670}
   - component: {fileID: 114497868231759342}
   - component: {fileID: 114762042097486276}
+  - component: {fileID: 4606217763423333881}
   m_Layer: 0
   m_Name: First Person Controller
   m_TagString: Untagged
@@ -651,6 +653,23 @@ MonoBehaviour:
   headToLower: {fileID: 4490257326247362}
   crouchYHeadPosition: 1
   colliderToLower: {fileID: 136877096903737240}
+--- !u!114 &4606217763423333881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773623360729482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873f3cb38c1c3584497c544cd69c6bde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allCardsCollected: 0
+  _collectedCardText: {fileID: 0}
+  _subtitles: {fileID: 0}
+  _cardsTotal: 3
+  _triggerCooldown: 5
 --- !u!1 &1963958859065967600
 GameObject:
   m_ObjectHideFlags: 0
