@@ -23,7 +23,6 @@ public class EnemyPatrolState : EnemyBaseState
     public override void EnterState()
     {
         _context.isMoving = true;
-        Debug.Log("Entered patrol");
         _enemy.NavMeshAgent.isStopped = false;
         SwitchTarget();
     }
@@ -37,7 +36,6 @@ public class EnemyPatrolState : EnemyBaseState
           {
             SwitchTarget();
           }
-          //Debug.Log("Patrol Update");
     }
     public override void ExitState()
     {
