@@ -74,7 +74,7 @@ public class ItemManager : MonoBehaviour
     {
         _collectedCardText.text = "Cards collected: " + _score + "/" + _cardsTotal;
     }
-    private void ShowExitStatus()
+    public void ShowExitStatus()
     {
         if (_isOnCooldown) return;
         string exitStatus;
