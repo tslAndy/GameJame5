@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3999,7 +3999,7 @@ GameObject:
   - component: {fileID: 708307478}
   - component: {fileID: 708307480}
   - component: {fileID: 708307479}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sound Maker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5630,7 +5630,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1005746288}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy Fix
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10851,7 +10851,7 @@ GameObject:
   - component: {fileID: 4077245637237371806}
   - component: {fileID: 4077245637237371805}
   - component: {fileID: 4077245637237371804}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -10898,7 +10898,7 @@ MonoBehaviour:
   _viewingRange: 9
   _hittingLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 64
   _raycastsAmount: 5
   _raycastsAngle: 30
   _chasingSpeed: 7
