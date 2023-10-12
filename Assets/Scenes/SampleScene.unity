@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1574,12 +1574,17 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 87a2ccec8684ffa48b8c054e76127808,
         type: 3}
       propertyPath: m_Name
-      value: uploads_files_2931640_carnage(1)
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 87a2ccec8684ffa48b8c054e76127808,
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87a2ccec8684ffa48b8c054e76127808,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7869873546869171050, guid: 87a2ccec8684ffa48b8c054e76127808,
         type: 3}
@@ -1589,7 +1594,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -4794606187302301237, guid: 87a2ccec8684ffa48b8c054e76127808,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1932569806}
   m_SourcePrefab: {fileID: 100100000, guid: 87a2ccec8684ffa48b8c054e76127808, type: 3}
 --- !u!1 &695356434
 GameObject:
@@ -1984,6 +1993,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 843528062}
+    - targetCorrespondingSourceObject: {fileID: 1773623360729482, guid: 11aaea5348574644a9eb4f4504fcce3f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 843528070}
   m_SourcePrefab: {fileID: 100100000, guid: 11aaea5348574644a9eb4f4504fcce3f, type: 3}
 --- !u!114 &843528060 stripped
 MonoBehaviour:
@@ -2037,6 +2050,21 @@ MonoBehaviour:
   _subtitles: {fileID: 843528062}
   _cardsTotal: 3
   _triggerCooldown: 5
+--- !u!114 &843528070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843528061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f2055d5db1aa2d4daea4973aff6efe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionRadius: 10
+  _globalVolumeProfile: {fileID: 11400000, guid: a6560a915ef98420e9faacc1c7438823,
+    type: 2}
 --- !u!1 &863281736
 GameObject:
   m_ObjectHideFlags: 0
@@ -4602,6 +4630,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1925153243}
   m_CullTransparentMesh: 1
+--- !u!1 &1932569802 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4794606187302301237, guid: 87a2ccec8684ffa48b8c054e76127808,
+    type: 3}
+  m_PrefabInstance: {fileID: 677321342}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1932569806
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932569802}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.083828606, y: 0.027659563, z: 0.07153229}
+  m_Center: {x: -0.00000017508864, y: -0.0003759539, z: 0.006602621}
 --- !u!1 &1934300060
 GameObject:
   m_ObjectHideFlags: 0

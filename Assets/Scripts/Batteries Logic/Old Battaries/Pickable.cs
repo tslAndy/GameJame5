@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Pickable : MonoBehaviour
 {
+    /*
     Vector3 distanceToPlayer;
     
     private void Update()
