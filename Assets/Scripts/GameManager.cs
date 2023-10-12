@@ -7,8 +7,8 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
-    public float pickableDistance;
-    public LayerMask maskThatOick;
+    //public float pickableDistance;
+    //public LayerMask maskThatOick;
     [SerializeField] private GameObject pressEText;
     [SerializeField] private Transform _player;
     public Transform Player {
