@@ -16,7 +16,7 @@ public class EnemyStateManager : MonoBehaviour
 
     private void OnEnable()
     {
-        SafeSpot.OnPlayerInSafeSpot += delegate (bool isIt) { isPlayerVisible = isIt; Debug.Log("Performed delegate"); };
+        SafeSpot.OnPlayerInSafeSpot += delegate (bool isIt) { isPlayerVisible = isIt;  };
     }
     private void OnDisable()
     {
