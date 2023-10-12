@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 687180948}
   - component: {fileID: 687180949}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: First Person Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2065189707}
   - component: {fileID: 2065189708}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Crouch Start Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 4464631255176552}
   - component: {fileID: 33023507119538386}
   - component: {fileID: 23087463268523072}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,7 +298,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4773208539257838}
   - component: {fileID: 114503055206606986}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ground Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceThreshold: 0.15
-  isGrounded: 0
+  isGrounded: 1
 --- !u!1 &1593727746557118
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 114657890492222300}
   - component: {fileID: 114103969153859672}
   - component: {fileID: 5117908526708581631}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: First Person Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -368,7 +368,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.4880002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6683112042104206751}
   m_Father: {fileID: 4207293392497186}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &20437472682476688
@@ -410,7 +411,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 183
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -469,6 +470,7 @@ MonoBehaviour:
   maxZoomFOV: 15
   currentZoom: 0
   sensitivity: 1
+  targetObject: {fileID: 0}
 --- !u!114 &5117908526708581631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -527,9 +529,9 @@ GameObject:
   - component: {fileID: 114963311885979670}
   - component: {fileID: 114497868231759342}
   - component: {fileID: 114762042097486276}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: First Person Controller
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -661,7 +663,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4964732916815481476}
   - component: {fileID: 556619294522721544}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Running Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -788,7 +790,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8997051405522897132}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Crouch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -823,7 +825,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5916410282418351716}
   - component: {fileID: 5508936939506240807}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Landing Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -951,7 +953,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1059592472107703535}
   - component: {fileID: 3262163692650602188}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Crouched Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1079,7 +1081,7 @@ GameObject:
   m_Component:
   - component: {fileID: 181155213998361191}
   - component: {fileID: 3404824665309619301}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Step Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1207,7 +1209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7435136860070506563}
   - component: {fileID: 7563556069531604368}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Crouch End Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1335,7 +1337,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1199277930754650858}
   - component: {fileID: 8216084724610366295}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Jump Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1453,3 +1455,97 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1001 &8636005024201319035
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4490257326247362}
+    m_Modifications:
+    - target: {fileID: 2318718851530083678, guid: f739c7067ceb3094380145117c041964,
+        type: 3}
+      propertyPath: m_Name
+      value: camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318718851530083678, guid: f739c7067ceb3094380145117c041964,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3042558810679265974, guid: f739c7067ceb3094380145117c041964,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127308136139167716, guid: f739c7067ceb3094380145117c041964,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.35859
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127308136139167716, guid: f739c7067ceb3094380145117c041964,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.243
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127308136139167716, guid: f739c7067ceb3094380145117c041964,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.759
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127308136139167716, guid: f739c7067ceb3094380145117c041964,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127308136139167716, guid: f739c7067ceb3094380145117c041964,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.00000013411044
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127308136139167716, guid: f739c7067ceb3094380145117c041964,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127308136139167716, guid: f739c7067ceb3094380145117c041964,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127308136139167716, guid: f739c7067ceb3094380145117c041964,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127308136139167716, guid: f739c7067ceb3094380145117c041964,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127308136139167716, guid: f739c7067ceb3094380145117c041964,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436152001237487346, guid: f739c7067ceb3094380145117c041964,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7597675586740203188, guid: f739c7067ceb3094380145117c041964,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f739c7067ceb3094380145117c041964, type: 3}
+--- !u!4 &6683112042104206751 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3127308136139167716, guid: f739c7067ceb3094380145117c041964,
+    type: 3}
+  m_PrefabInstance: {fileID: 8636005024201319035}
+  m_PrefabAsset: {fileID: 0}

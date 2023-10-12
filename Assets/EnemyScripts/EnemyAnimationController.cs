@@ -14,20 +14,13 @@ public class EnemyAnimationController : MonoBehaviour
 
     public void SetChaseAnimation()
     {
-        // Play the chase animation without looping
+        // Play the chase animation
         enemyAnimator.Play(chaseAnimationName);
     }
 
     public void SetSearchAnimation()
     {
-        // Play the search animation and set it to loop
+        // Play the search animation
         enemyAnimator.Play(searchAnimationName);
-        enemyAnimator.SetBool("IsSearching", true); // Assuming you have a parameter to control looping in your Animator
-    }
-
-    public void StopSearchAnimation()
-    {
-        // Stop looping the search animation
-        enemyAnimator.SetBool("IsSearching", false);
     }
 }

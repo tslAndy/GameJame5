@@ -8,8 +8,8 @@ public class EnemyStateManager : MonoBehaviour
     [SerializeField] private Enemy _enemy;
     [SerializeField] private EnemyAnimationController animationController;
 
-    public EnemyChaseState chaseState; 
-    public EnemyPatrolState patrolState; 
+    public EnemyChaseState chaseState;
+    public EnemyPatrolState patrolState;
     public EnemyBaseState _currentState;
 
     [HideInInspector] public bool isPlayerVisible = true;
@@ -21,15 +21,15 @@ public class EnemyStateManager : MonoBehaviour
     }
     private void OnDisable()
     {
-        
+
     }
     private void Awake()
     {
+        animationController = GetComponent<EnemyAnimationController>();
         chaseState = new EnemyChaseState(this, _enemy);
         patrolState = new EnemyPatrolState(_targets, _enemy, this);
         _currentState = patrolState;
         _currentState.EnterState();
-        animationController = GetComponent<EnemyAnimationController>();
     }
 
     private void Update()
@@ -42,10 +42,6 @@ public class EnemyStateManager : MonoBehaviour
             animationController.SetChaseAnimation();
         }
         else if (_currentState == patrolState)
-        {
-            animationController.SetSearchAnimation();
-        }
-        else if(_currentState == patrolState)
         {
             animationController.SetSearchAnimation();
         }
