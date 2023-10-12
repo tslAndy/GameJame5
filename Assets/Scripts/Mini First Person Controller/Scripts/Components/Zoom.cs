@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+
 [ExecuteInEditMode]
 public class Zoom : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class Zoom : MonoBehaviour
     [Range(0, 1)]
     public float currentZoom;
     public float sensitivity = 1;
+    public Transform targetObject;
+
 
 
     void Awake()
