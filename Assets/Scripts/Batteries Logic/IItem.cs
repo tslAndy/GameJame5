@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IItem
 {
-    public void Execute();
+    public void Execute(ItemManager context);
     public void OnEnter();
     public void OnExit();
 }

@@ -27,7 +27,7 @@ public class ItemManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && currentItem != null)
         {
-            currentItem.Execute();
+            currentItem.Execute(this);
         }
     }
 
@@ -38,12 +38,10 @@ public class ItemManager : MonoBehaviour
             currentItem = battery;
             currentItem.OnEnter();
         }
-        if (other.transform.TryGetComponent(out Card cart))
+        else if (other.transform.TryGetComponent(out Card cart))
         {
             currentItem = cart;
             currentItem.OnEnter();
-            ++_score;
-            UpdateCardText();
         }
         else if (other.gameObject.CompareTag("Exit"))
         {
@@ -53,9 +51,8 @@ public class ItemManager : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (!other.gameObject.CompareTag("Battery"))
+        if (!other.gameObject.CompareTag("Battery") || other.gameObject.CompareTag("Card"))
             return;
-
         if (currentItem != null)
         {
             currentItem.OnExit();
@@ -63,6 +60,11 @@ public class ItemManager : MonoBehaviour
         }
     }
 
+    public void LogicForCardToUpdate()
+    {
+        ++_score;
+        UpdateCardText();
+    }
     private void UpdateCardText()
     {
         _collectedCardText.text = "Cards collected: " + _score + "/" + _cardsTotal;
