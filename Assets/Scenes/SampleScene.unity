@@ -2253,6 +2253,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 843528059}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &843528064 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4606217763423333881, guid: 11aaea5348574644a9eb4f4504fcce3f,
+    type: 3}
+  m_PrefabInstance: {fileID: 843528059}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843528061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873f3cb38c1c3584497c544cd69c6bde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &843528070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2293,7 +2305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5ebe2e3f9f25654aa4f014e45b31419, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collectedCards: {fileID: 0}
+  _collectedCards: {fileID: 843528064}
   _winScreen: {fileID: 1777715880}
 --- !u!65 &843528090
 BoxCollider:
