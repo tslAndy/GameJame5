@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Battery : MonoBehaviour, IItem
 {
-    public void Execute()
+    public void Execute(ItemManager context)
     {
         GameManager.instance.InvokeOnItemPickedUp(gameObject.tag);
         OnExit();
