@@ -2367,7 +2367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2d625eb4ed96ba46b41b192bd6899c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _subtitleText: {fileID: 0}
+  _subtitleText: {fileID: 699225918}
   _lines:
   - Something is wrong here...
   - I need to use my camera to see the monster.

@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Card : MonoBehaviour, IItem
 {
-    public void Execute()
+    public void Execute(ItemManager context)
     {
         GameManager.instance.InvokeOnItemPickedUp(gameObject.tag);
+        context.LogicForCardToUpdate();
         OnExit();
         Destroy(gameObject);
     }
