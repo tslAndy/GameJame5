@@ -27,7 +27,7 @@ public class CardCollector : MonoBehaviour
         _collectedCardText.text = "Cards collected: " + _score + "/" + _cardsTotal;
     }
 
-    public void ShowExitStatus()
+    private void ShowExitStatus()
     {
         if (_isOnCooldown) return;
         string exitStatus;

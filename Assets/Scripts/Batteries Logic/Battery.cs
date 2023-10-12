@@ -7,6 +7,7 @@ public class Battery : MonoBehaviour, IItem
     public void Execute(ItemManager context)
     {
         GameManager.instance.InvokeOnItemPickedUp(gameObject.tag);
+        context.AddBattary();
         OnExit();
         Destroy(gameObject);
     }
@@ -21,5 +22,9 @@ public class Battery : MonoBehaviour, IItem
     {
         if (GameManager.instance.IsPressTextActive())
             GameManager.instance.SetPressTextActivness(false);
+    }
+
+    public void Use(ItemManager context)
+    {
     }
 }

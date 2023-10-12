@@ -6,17 +6,18 @@ using UnityEngine;
 public class ItemManager : MonoBehaviour
 {
     public bool allCardsCollected = false;
-    [SerializeField]
-    private TextMeshProUGUI _collectedCardText;
-    [SerializeField]
-    private Subtitles _subtitles;
-    [SerializeField]
-    private int _cardsTotal = 3;
-    [SerializeField]
-    private float _triggerCooldown;
-    private int _score = 0;
+    [SerializeField] private TextMeshProUGUI _collectedCardText;
+    [SerializeField] private Subtitles _subtitles;
+    [SerializeField] private int _cardsTotal = 3;
+    [SerializeField] private float _triggerCooldown;
+    private int _cardScore = 0;
+    [SerializeField] private TextMeshProUGUI _collectedBattariesText;
+    private int _batteriesAmount = 0;
     private bool _isOnCooldown = false;
     private IItem currentItem;
+
+    public delegate void UsingBattary();
+    public static event UsingBattary OnBattaryUsed;
 
     private void Start()
     {
@@ -29,6 +30,11 @@ public class ItemManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && currentItem != null)
         {
             currentItem.Execute(this);
+            currentItem = null;
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            UseBattary();
         }
     }
 
@@ -64,21 +70,24 @@ public class ItemManager : MonoBehaviour
             currentItem = null;
         }
     }
+    ///////// CARD  /////////
 
     public void LogicForCardToUpdate()
     {
-        ++_score;
+        ++_cardScore;
         UpdateCardText();
+        UpdateBatteryText();
     }
+
     private void UpdateCardText()
     {
-        _collectedCardText.text = "Cards collected: " + _score + "/" + _cardsTotal;
+        _collectedCardText.text = "Cards collected: " + _cardScore + "/" + _cardsTotal;
     }
-    private void ShowExitStatus()
+    public void ShowExitStatus()
     {
         if (_isOnCooldown) return;
         string exitStatus;
-        if (_score < _cardsTotal)
+        if (_cardScore < _cardsTotal)
         {
             exitStatus = "I need all the access cards to exit this building...";
         }
@@ -96,5 +105,25 @@ public class ItemManager : MonoBehaviour
     {
         yield return new WaitForSeconds(_triggerCooldown);
         _isOnCooldown = false;
+    }
+    ///////// CARD  /////////
+    ///////// BATTARY  /////////
+    public void AddBattary()
+    {
+        _batteriesAmount++;
+        UpdateBatteryText();
+    }
+    public void UseBattary()
+    {
+        if (_batteriesAmount > 0)
+        {
+            _batteriesAmount -= 1;
+            UpdateBatteryText();
+            OnBattaryUsed?.Invoke();   //increase the cameras energy to max
+        }
+    }
+    private void UpdateBatteryText()
+    {
+        _collectedBattariesText.text = "Battaries collected: " + _batteriesAmount;
     }
 }

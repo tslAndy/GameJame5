@@ -23,4 +23,8 @@ public class Card : MonoBehaviour, IItem
         if (GameManager.instance.IsPressTextActive())
             GameManager.instance.SetPressTextActivness(false);
     }
+
+    public void Use(ItemManager context)
+    {
+    }
 }

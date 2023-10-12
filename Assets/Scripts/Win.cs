@@ -3,7 +3,7 @@ using UnityEngine;
 public class Win : MonoBehaviour
 {
     [SerializeField]
-    private CardCollector _collectedCards;
+    private ItemManager _collectedCards;
     [SerializeField]
     private GameObject _winScreen;
     private void OnTriggerEnter(Collider other)

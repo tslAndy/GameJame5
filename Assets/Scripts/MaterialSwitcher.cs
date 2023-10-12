@@ -20,11 +20,22 @@ public class MaterialSwitcher : MonoBehaviour
     private Renderer objectRenderer;
     public float currentEnergy;
     private bool isRenderMaterialActive;
-
+    private void OnEnable()
+    {
+        ItemManager.OnBattaryUsed += EnergyToMax;
+    }
+    private void OnDisable()
+    {
+        ItemManager.OnBattaryUsed -= EnergyToMax;
+    }
     private void Start()
     {
         objectRenderer = GetComponent<Renderer>();
         objectRenderer.material = material1; // Start with material 1 (black screen)
+        currentEnergy = maxEnergy;
+    }
+    public void EnergyToMax()
+    {
         currentEnergy = maxEnergy;
     }
 
@@ -72,12 +83,14 @@ public class MaterialSwitcher : MonoBehaviour
                 SwitchToMaterial(material1);
             }
         }
+        /*
         else
         {
             // Recharge energy when material 1 is active
             currentEnergy += energyRechargeRate * Time.deltaTime;
             currentEnergy = Mathf.Min(currentEnergy, maxEnergy); // Ensure energy doesn't exceed the maximum
         }
+        */
 
         _chargeText.text = "Camera charge: " + Mathf.RoundToInt(currentEnergy) + "%";
 
