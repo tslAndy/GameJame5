@@ -82,7 +82,7 @@ public class ItemManager : MonoBehaviour
 
     private void UpdateCardText()
     {
-        _collectedCardText.text = "Cards collected: " + _cardScore + "/" + _cardsTotal;
+        _collectedCardText.text = "Access cards collected: " + _cardScore + "/" + _cardsTotal;
     }
     public void ShowExitStatus()
     {
