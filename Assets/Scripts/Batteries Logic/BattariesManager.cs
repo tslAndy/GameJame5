@@ -1,41 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BattariesManager : MonoBehaviour
 {
-    public int BatteriesAmount;
-    [SerializeField] private Image _UICameraImage;
-    [SerializeField] private Image _energyDecreasingTime;
-    private bool _usingCamera;
+    [SerializeField] private TextMeshProUGUI _collectedBattariesText;
+    private int _batteriesAmount;
     private void OnEnable()
     {
-        GameManager.instance.OnItemPickedUp += HandleBattaryPickUp;
+        GameManager.instance.OnItemPickedUp += AddBattary;
     }
     private void OnDisable()
     {
-        GameManager.instance.OnItemPickedUp -= HandleBattaryPickUp;
+        GameManager.instance.OnItemPickedUp -= AddBattary;
     }
-    private void Update()
+    public void UseBattery()
     {
-
-    }
-    void UseBattery()
-    {
-        if(BatteriesAmount > 0)
+        if(_batteriesAmount > 0)
         {
-            BatteriesAmount -= 1;
+            _batteriesAmount -= 1;
+            UpdateText();
             //increase the cameras energy to max
         }
     }
-    void HandleBattaryPickUp(string name)
+    private void UpdateText()
     {
-        if(name == "Battery")
+        _collectedBattariesText.text = "Battaries collected: " + _batteriesAmount;
+    }
+    void AddBattary(string tag)
+    {
+        if(tag == "Battery")
         {
-            Debug.Log("Picked Battery " + BatteriesAmount);
-
-            BatteriesAmount++;
+            _batteriesAmount++;
+            UpdateText();
         }
     }
 }
