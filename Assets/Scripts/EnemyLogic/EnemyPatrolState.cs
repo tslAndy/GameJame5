@@ -37,7 +37,7 @@ public class EnemyPatrolState : EnemyBaseState
           {
             SwitchTarget();
           }
-        Debug.Log("Patrol Update");
+          //Debug.Log("Patrol Update");
     }
     public override void ExitState()
     {
@@ -66,7 +66,6 @@ public class EnemyPatrolState : EnemyBaseState
             Debug.DrawRay(_enemy.Transform.position, direction * _enemy.ViewingRange, Color.green);
             if (hit.collider != null)
             {
-                Debug.Log("hit has an Collider");
                 _context.SwitchState(_context.chaseState);
                 break;
             }
