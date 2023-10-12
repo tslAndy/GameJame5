@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CardCollector : MonoBehaviour
 {
+    public bool allCardsCollected = false;
     [SerializeField]
     private TextMeshProUGUI _collectedCardText;
     [SerializeField]
@@ -26,7 +27,7 @@ public class CardCollector : MonoBehaviour
         _collectedCardText.text = "Cards collected: " + _score + "/" + _cardsTotal;
     }
 
-    private void ShowExitStatus()
+    public void ShowExitStatus()
     {
         if (_isOnCooldown) return;
         string exitStatus;
@@ -36,6 +37,7 @@ public class CardCollector : MonoBehaviour
         }
         else
         {
+            allCardsCollected = true;
             exitStatus = "The door opened!";
         }
         _subtitles.OverwriteLinesWithLine(exitStatus);

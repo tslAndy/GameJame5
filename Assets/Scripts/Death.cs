@@ -7,7 +7,6 @@ public class Death : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.tag);
         if (other.CompareTag("Enemy"))
         {
             _deathScreen?.SetActive(true);
